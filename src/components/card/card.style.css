@@ -12,9 +12,21 @@
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.25s ease-out;
+    align-items: center;
 }
 
-.card-container:hover {
-    transform: scale(1.05);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}   
+.card-container img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        padding: 12px;
+    }
+    .card-container img {
+        max-width: 120px;
+    }
+}
