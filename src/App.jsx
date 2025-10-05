@@ -7,16 +7,20 @@ import SearchBox from './components/search-box/searchBox';
 function App() {
   const [monsters, setMonsters] = useState([])
   const [fiteredMonsters, setFilteredMonsters] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
   console.log(monsters);
   
 
   useEffect(() => {
+    setLoading(true);
     //side effect of a pure function which makes its impure function 
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
       .then((data) => {
         setMonsters(data)
         setFilteredMonsters(data)
+        setLoading(false);
       })
   }, [])
 
@@ -31,7 +35,7 @@ function App() {
       <h1 className='app-title'>Monster Rolodex</h1>
       <SearchBox onChangeHandler={onSearchChange}/>
       
-      <CardList monsters={fiteredMonsters} />
+      <CardList monsters={fiteredMonsters} loader={loading}/>
     
       
     </div>

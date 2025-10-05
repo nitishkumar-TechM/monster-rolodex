@@ -20,3 +20,31 @@
         grid-gap: 12px;
     }
 }
+
+/* ErrorMessage.css */
+
+/* The blinking animation */
+@keyframes color-blink {
+  0%, 100% {
+    color: #0b3e91; /* Aqua Green */
+  }
+  
+  50% {
+    color: #ff0000; /* Bright Red */
+  }
+}
+
+/* Original styles applied, with the animation property added */
+.error-message {
+  font-size: 22px;
+  margin-top: 75px;
+  margin-bottom: 50px;
+  /* Starting color is still the original aqua, but the animation will override it */
+  color: #3023e6; 
+  font-family: 'Bigelow Rules';
+  text-align: center;
+  word-break: break-word;
+  
+  /* Apply the blink animation */
+  animation: color-blink 1s infinite alternate; 
+}
